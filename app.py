@@ -14,9 +14,9 @@ def home():
 @app.route("/predict_api",methods=['POST'])
 def predict_api():
     data=request.json['data']
-    print(data)
-    print(np.array(list(data.values())[0]).reshape(1,-1))
-    new_data=scalar.transform(np.array(list(data.values())[0]).reshape(1,-1))
+    # print(data)
+    # print(np.array(list(data.values())).reshape(1,-1))
+    new_data=scalar.transform(np.array(list(data.values())).reshape(1,-1))
     output=reg_model.predict(new_data)
     return jsonify(output[0])
 
@@ -27,4 +27,3 @@ if __name__=="__main__":
 
 
 
-    
